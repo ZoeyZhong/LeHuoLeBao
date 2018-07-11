@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HappyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dl_basic_users">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userphone" Type="varchar" MaxLength="50" />
+    <Property Name="userpwd" Type="varchar" MaxLength="50" />
+    <Property Name="exname" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="jointime" Type="datetime" />
+    <Property Name="useraddr" Type="varchar" MaxLength="50" />
+    <Property Name="userQQ" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="comment" Type="varchar" MaxLength="50" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sys_function">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="pid" Type="int" />
+    <Property Name="function" Type="varchar" MaxLength="50" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="control" Type="varchar" MaxLength="50" />
+    <Property Name="functionname" Type="varchar" MaxLength="50" />
+    <Property Name="parameters" Type="varchar" MaxLength="50" />
+    <Property Name="order" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="level" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="url" Type="varchar" MaxLength="50" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sys_role">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="rolename" Type="varchar" MaxLength="50" />
+    <Property Name="url" Type="varchar" MaxLength="50" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sys_role_function">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="rid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="50" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sys_user_role">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="userid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="50" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="t_f_news">
+    <Key>
+      <PropertyRef Name="newsid" />
+    </Key>
+    <Property Name="newsid" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="time" Type="datetime" />
+    <Property Name="content" Type="varchar(max)" />
+    <Property Name="picture" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="t_f_park">
+    <Key>
+      <PropertyRef Name="park_id" />
+    </Key>
+    <Property Name="park_id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_title" Type="varchar" MaxLength="50" />
+    <Property Name="p_content" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="t_f_recruit">
+    <Key>
+      <PropertyRef Name="recruitid" />
+    </Key>
+    <Property Name="recruitid" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="re_name" Type="varchar" MaxLength="50" />
+    <Property Name="re_type" Type="varchar" MaxLength="50" />
+    <Property Name="re_money" Type="varchar" MaxLength="50" />
+    <Property Name="re_require" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="option1" Type="varchar" MaxLength="50" />
+    <Property Name="option2" Type="varchar" MaxLength="50" />
+    <Property Name="option3" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="HappyModelStoreContainer">
+    <EntitySet Name="dl_basic_users" EntityType="Self.dl_basic_users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sys_function" EntityType="Self.sys_function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sys_role" EntityType="Self.sys_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sys_role_function" EntityType="Self.sys_role_function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sys_user_role" EntityType="Self.sys_user_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_f_news" EntityType="Self.t_f_news" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_f_park" EntityType="Self.t_f_park" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_f_recruit" EntityType="Self.t_f_recruit" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,66 @@
+﻿@using LeHuoLeBao.Models;
+@using Telerik.Web.Mvc.UI;
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    function onRowSelected_edit(recruitid) {
+        window.location.href = "/Content/EditRecruit?id=" + recruitid;
+    }
+
+    function onRowSelected_delete(recruitid) {
+        if (confirm('确认删除?')) {
+            $.post("/Content/DeleteRecruit/", "id=" + recruitid, function (result) {
+                if (result.Total > 0) {
+                    location.reload();
+                    alert("删除成功！");
+                    $('#message').css("display", "block");
+                    var griddata = $('#RECRUIT').data('tGrid');
+                    griddata.dataBind(result.Data);
+                    setInterval(displaymessage, 3000);
+                }
+                else {
+                    $('msg').html('删除失败！');
+                    $('#message').css("display", "block");
+                }
+
+            });
+        }
+    }
+    function displaymessage() {
+        $('#message').css("display", "none");
+    }
+</script>
+
+@(Html.Telerik().Grid<RecuitCom>().Name("RECRUIT")
+                    .Columns(columns =>
+                    {
+                        columns.Bound(o => o.recruitid).Title("编号").Hidden();
+                        columns.Bound(o => o.re_type).Title("岗位类别").Width(100);
+                        columns.Bound(o => o.re_name).Title("岗位名称").Width(100);
+                        columns.Bound(o => o.re_money).Title("薪金").Width(100);
+                        columns.Bound(o => o.re_require).Title("要求").Width(100);
+
+                        columns.Bound(o => o.recruitid).Title("操作")
+                            .ClientTemplate("<a href=\"#\"  title='编辑' onclick=\"onRowSelected_edit(<#= recruitid #>)\">" +
+                            "<img style=\"width:20px;height:20px;\" src='/PIC/back/edit.png'></a>&nbsp;|&nbsp;" +
+                            "<a href=\"#\" onclick=\"onRowSelected_delete(<#= recruitid #>)\" title='删除'>" +
+                            "<img style=\"width:20px;height:20px;\" src='/PIC/back/delete.png'></a>")
+                            .Width(80);
+                    })
+                            .DataBinding(dataBinding => dataBinding.Ajax().Select("RecuitList", "Content"))
+                            .Selectable()
+                            .Pageable()
+                            .Footer(true)
+)
+<div style="height: 80px;">
+    <div id="message" class="alert alert-info" style="display: none; margin-right: 50px;
+        margin-top: 20px; float: right; width: 30%">
+        <a class="close" data-dismiss="alert" href="#">&times;</a>
+        <h4 id="msg">
+            删除成功！
+        </h4>
+    </div>
+</div>

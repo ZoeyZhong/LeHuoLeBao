@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "EditRecruit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#btnReturn").click(function () {
+            window.location.href = "/Content/Recuit/";
+        });
+        $("#btnSave").click(function () {
+            if ($("#re_type").val() == "") {
+                alert("请填写岗位类别");
+                return;
+            }
+            if ($("#re_name").val() == "") {
+                alert("请填写岗位名称");
+                return;
+            }
+            if ($("#re_money").val() == "") {
+                alert("请填写岗位薪金");
+                return;
+            }
+            if ($("#re_require").val() == "") {
+                alert("请填写岗位要求");
+                return;
+            }
+            if (!confirm("您确认要保存吗？")) {
+                return;
+            }
+            var article = GetArticle();
+            $.ajax({
+                type: "POST",
+                contentType: "application/json;utf-8",
+                url: "/Content/SaveEditR",
+                data: "{json:'" + $.toJSON(article) + "'}",
+                dataType: "",
+                success: function (data, textStatus) {
+                    if (data == "success") {
+                        alert("修改成功！");
+                        window.location.href = "/Content/Recuit";
+                    }
+                    else {
+                        alert(data);
+                    }
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    //HideLoading();
+                },
+                error: function (statusText, responseText) {
+                    //请求出错处理
+                    alert(statusText.responseText);
+                }
+            });
+        });
+    });
+
+    // 获取所有信息
+    function GetArticle() {
+        var article = new Object();
+        article.recruitid = $("#recruitid").val();
+        article.re_type = $("#re_type").val();
+        article.re_name = $("#re_name").val();
+        article.re_money = $("#re_money").val();
+        article.re_require = $("#re_require").val();
+        return article;
+    }
+</script>
+<div id="Detail">
+    <div style="width: 600px; margin-left: 30px;" id="form-paper">
+        <div style="text-align: left">
+            <a href="#" id="btnReturn" class="easyui-linkbutton" iconcls="icon-back" plain="true">
+                返回
+            </a><span style="color: #E7E7E7">&nbsp;|&nbsp;</span><a href="#" id="btnSave" class="easyui-linkbutton"
+                                                                    iconcls="icon-save" plain="true">保存</a>
+            <br />
+            <br />
+        </div>
+        <input id="recruitid" type="text" value="@ViewData["recruitid"]" style=" display:none;" />
+        <table>
+            <tr>
+                <th>
+                    招聘岗位类别：
+                </th>
+                <td>
+                    <input id="re_type" type="text" value="@ViewData["re_type"]" /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    招聘岗位名称：
+                </th>
+                <td>
+                    <input id="re_name" type="text" value="@ViewData["re_name"]" /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    招聘岗位薪金：
+                </th>
+                <td>
+                    <input id="re_money" type="text" value="@ViewData["re_money"]" /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    招聘岗位要求：
+                </th>
+                <td>
+                    <input id="re_require" type="text" value="@ViewData["re_require"]" /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+

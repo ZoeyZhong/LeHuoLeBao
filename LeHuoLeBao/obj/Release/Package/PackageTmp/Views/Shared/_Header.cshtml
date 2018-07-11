@@ -1,0 +1,151 @@
+﻿
+@{
+
+}
+@using Telerik.Web.Mvc.UI;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@(ViewBag.Title)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script src="~/Scripts/JS/top.js"></script>
+    <link href="~/Scripts/CSS/top.css" rel="stylesheet" />
+    <script type="application/x-javascript">
+
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../../Scripts/CSS/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../Scripts/CSS/style.css" />
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <!--start-home-->
+    <div id="home" class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="head-nav">
+                    <div class="logo">
+                        <img style="width:170px;height:60px" src="../../PIC/title.jpg" alt="">
+                        <!--<a href="index.html"><h1>Jolly<span>Games</span></h1></a>-->
+                    </div>
+                    <div class="clearfix"></div>
+                    <span class="menu"></span>
+                    <div class="top-menu">
+                        <ul>
+
+                            <li class="active"><a class="color1" href="../Front/Index">首页</a></li>
+                            <li><a class="color6" href="../Front/About">乐园剪影</a></li>
+                            <li><a class="color3" href="../Front/News">新闻活动</a></li>
+                            <li><a class="color4" href="../Front/Ticket">购票</a></li>
+                            <li><a class="color5" href="../Front/Recruit">招聘</a></li>
+                            <li><a class="color2" href="../Front/Park">商务合作</a></li>
+
+
+
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </div>
+                    <!--script-for-menu-->
+                    <script>
+                        $("span.menu").click(function () {
+                            $(".top-menu").slideToggle("slow", function () {
+                                // Animation complete.
+                            });
+                        });
+                    </script>
+                    <!--script-for-menu-->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    @RenderBody()
+
+    
+
+
+
+    <!--Slider-Starts-Here-->
+    <script src="../../Scripts/JS/responsiveslides.min.js"></script>
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 4
+            $("#slider4").responsiveSlides({
+                auto: true,
+                pager: false,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+    <!--End-slider-script-->
+    <!--footer--->
+    <div class="footer text-center">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-6 footer-text">
+                    <h3>关于我们</h3>
+                    <p>占地约170余亩，累计投入1000多万元，于2017年圣诞正式投入运行，是全国最专业的儿童拓展主题亲子田园。全区交通便利，重庆市出发经G50全高速40公里 30分钟车程。高德地图导航“乐活乐宝”即可到达园区游客接待中心。</p>
+                    @*<a class="read" href="../Front/About">更多</a>*@
+                    <h3>&nbsp;</h3>
+                </div>
+                <div class="col-md-6 footer-info">
+                    <h3>联系方式</h3>
+                    <p>联系电话：18696641106 </p>
+                    <p>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：重庆江北区五宝镇干坝村 </p>
+
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="copy">
+                <p>Copyright &#169; 2017 乐活乐宝. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <!--start-smoth-scrolling-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!--start-smoth-scrolling-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+
+    <a href="#" onclick="gotoTop();return false;" class="totop"></a>
+</body>
+</html>

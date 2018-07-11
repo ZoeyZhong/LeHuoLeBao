@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "商业合作";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+@using LeHuoLeBao.Models;
+    <!--about-->
+<!-- banner-bottom -->
+<div class="banner two">
+</div>
+<div class="about">
+    <div class="container">
+        <h3>我们的需求</h3>
+        <div class="about-top">
+            <div class="col-md-7 about-pic">
+                <img src="../../PIC/Park/b1.jpg" />
+            </div>
+            <div class="col-md-5 about-text">
+                <h4>有合作意向请联系我们</h4>
+                <p>联&nbsp;&nbsp;系&nbsp;&nbsp;人：文总</p>
+                <p>联系电话：18696641106</p>
+                <p class="para">商谈地址：重庆江北区五宝镇干坝村</p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="typrography">
+    <div class="container">
+        <section id="tables">
+
+            <div class="bs-docs-example">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>需求类别</th>
+                            <th>名称</th>
+                            <th>数量</th>
+                            <th>详细内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (true)
+                            {
+                                var db = new HappyEntities();
+                                                var root = (from a in db.t_f_park
+                                                            where a.isDel == false
+                                                            select new
+                                                            {
+                                                                park_id = a.park_id,//需求ID
+                                                                p_title = a.p_title, //需求名称
+                                                                p_content = a.p_content,//详细内容
+                                                                option1 = a.option1,//数量
+                                                                option2 = a.option2//类别
+                                                            }).Distinct().OrderByDescending(ob => ob.park_id);
+                                                foreach (var p in root)
+                                                { 
+                                                     <tr>
+                                                        <td>@(p.option2)</td>
+                                                        <td>@(p.p_title)</td>
+                                                        <td>@(p.option1)</td>
+                                                        <td>@(p.p_content)</td>
+                                                    </tr>
+                                                }
+                            } 
+                           
+                        }
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+

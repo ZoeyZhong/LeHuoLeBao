@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "EditPark"; 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#btnReturn").click(function () {
+            window.location.href = "/Content/Park/";
+        });
+        $("#btnSave").click(function () {
+            if ($("#option2").val() == "") {
+                alert("请填写需求类别");
+                return;
+            }
+            if ($("#p_title").val() == "") {
+                alert("请填写名称");
+                return;
+            }
+            if ($("#option1").val() == "") {
+                alert("请填写数量");
+                return;
+            }
+            if ($("#p_content").val() == "") {
+                alert("请填写详细内容");
+                return;
+            }
+            if (!confirm("您确认要保存吗？")) {
+                return;
+            }
+            var article = GetArticle();
+            $.ajax({
+                type: "POST",
+                contentType: "application/json;utf-8",
+                url: "/Content/SaveEditP",
+                data: "{json:'" + $.toJSON(article) + "'}",
+                dataType: "",
+                success: function (data, textStatus) {
+                    if (data == "success") {
+                        alert("修改成功！");
+                        window.location.href = "/Content/Park";
+                    }
+                    else {
+                        alert(data);
+                    }
+                },
+                complete: function (XMLHttpRequest, textStatus) {
+                    //HideLoading();
+                },
+                error: function (statusText, responseText) {
+                    //请求出错处理
+                    alert(statusText.responseText);
+                }
+            });
+        });
+    });
+
+    // 获取所有信息
+    function GetArticle() {
+        var article = new Object();
+        article.park_id = $("#park_id").val();
+        article.option2 = $("#option2").val();
+        article.p_title = $("#p_title").val();
+        article.option1 = $("#option1").val();
+        article.p_content = $("#p_content").val();
+        return article;
+    }
+</script>
+<div id="Detail">
+    <div style="width: 600px; margin-left: 30px;" id="form-paper">
+        <div style="text-align: left">
+            <a href="#" id="btnReturn" class="easyui-linkbutton" iconcls="icon-back" plain="true">
+                返回
+            </a><span style="color: #E7E7E7">&nbsp;|&nbsp;</span><a href="#" id="btnSave" class="easyui-linkbutton"
+                                                                    iconcls="icon-save" plain="true">保存</a>
+            <br />
+            <br />
+        </div>
+        <input id="park_id" type="text" value="@ViewData["park_id"]" s style=" display:none;" />
+        <table>
+            <tr>
+                <th>
+                    需求类别：
+                </th>
+                <td>
+                    <input id="option2" type="text" value="@ViewData["option2"]" /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    名称：
+                </th>
+                <td>
+                    <input id="p_title" type="text" value="@ViewData["p_title"]" /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    数量：
+                </th>
+                <td>
+                    <input id="option1" type="text" value="@ViewData["option1"]"  /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    详细内容：
+                </th>
+                <td>
+                    <input id="p_content" type="text" value="@ViewData["p_content"]"  /><span style="color: Red;">*</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+

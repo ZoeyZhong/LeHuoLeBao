@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "乐活乐宝";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>乐活乐宝</title>
+    <link rel="icon" type="image/ico" href="../../PIC/index_m/fav.ico">
+
+    <link href="../../Scripts/CSS/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../../Scripts/CSS/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="../../Scripts/CSS/flexslider.css" type="text/css" media="screen" />
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+
+</head>
+<frameset rows="64,*" frameborder="NO" border="0" framespacing="0">
+    <frame src="@Url.Action("Header")" noresize="noresize" frameborder="NO" name="topFrame" scrolling="no" marginwidth="0" marginheight="0" target="main" />
+    <frameset cols="185,*" id="frame">
+        <frame src="@Url.Action("Left")" name="leftFrame" noresize="noresize" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" target="main" />
+        <frame src="@Url.Action("Main")" name="main" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" target="_self" />
+    </frameset>
+    <noframes>
+        <body>
+        </body>
+    </noframes>
+</html>
+
+
+
+
+

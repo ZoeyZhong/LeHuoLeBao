@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "新闻活动";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+@using LeHuoLeBao.Models;
+<!-- banner-bottom -->
+<div class="banner two">
+</div>
+<div class="new-trailers two">
+    <div class="container">
+        <h3 style="margin-bottom:0">新闻活动</h3>
+        <div class="grid_3 grid_4">
+            <div class="bs-example">
+                <div class="typrography">
+                    <div class="container">
+                        <section id="tables">
+                            <div class="bs-docs-example">
+                                <table  class="table table-bordered">
+                                    <tbody>
+                                     @{
+                                            if (true)
+                                            {
+                                                var db = new HappyEntities();
+                                                var root = (from a in db.t_f_news
+                                                            where a.isDel == false
+                                                            select new
+                                                            {
+                                                                newsid = a.newsid,
+                                                                title = a.title,
+                                                                time = a.time,
+                                                                content = (a.content).Substring(0, 40)
+                                                            }).Distinct().OrderByDescending(ob => ob.newsid).Take(50).ToList();
+                                                foreach (var p in root)
+                                                {
+                                                    <tr style="font-size:20px;color:#000000">
+                                                        
+                                                        <td  class='hover-red' style="width: 80%; font-size: 20px; color: #000000; font-family: 'Fugaz One', cursive">
+                                                            <a onclick="newsback(@(p.newsid))" >@(p.title)……</a>
+                                                            
+                                                        </td>
+                                                        <td style=" font-size: 15px; color: #000000">@(p.time)</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function newsback(newsid) {
+                if (newsid == "") {
+                    return;
+                }
+                else {
+                    window.location.href = "/Front/Newscontent?theid=" + newsid;
+                }
+            }
+        </script>
+    </div>
+</div>
+

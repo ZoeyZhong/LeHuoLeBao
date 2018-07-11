@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HappyModelStoreContainer" CdmEntityContainer="HappyEntities">
+    <EntitySetMapping Name="dl_basic_users">
+      <EntityTypeMapping TypeName="HappyModel.dl_basic_users">
+        <MappingFragment StoreEntitySet="dl_basic_users">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="userphone" ColumnName="userphone" />
+          <ScalarProperty Name="userpwd" ColumnName="userpwd" />
+          <ScalarProperty Name="exname" ColumnName="exname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="jointime" ColumnName="jointime" />
+          <ScalarProperty Name="useraddr" ColumnName="useraddr" />
+          <ScalarProperty Name="userQQ" ColumnName="userQQ" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sys_function">
+      <EntityTypeMapping TypeName="HappyModel.sys_function">
+        <MappingFragment StoreEntitySet="sys_function">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="function" ColumnName="function" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="control" ColumnName="control" />
+          <ScalarProperty Name="functionname" ColumnName="functionname" />
+          <ScalarProperty Name="parameters" ColumnName="parameters" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sys_role">
+      <EntityTypeMapping TypeName="HappyModel.sys_role">
+        <MappingFragment StoreEntitySet="sys_role">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="rolename" ColumnName="rolename" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sys_role_function">
+      <EntityTypeMapping TypeName="HappyModel.sys_role_function">
+        <MappingFragment StoreEntitySet="sys_role_function">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sys_user_role">
+      <EntityTypeMapping TypeName="HappyModel.sys_user_role">
+        <MappingFragment StoreEntitySet="sys_user_role">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_f_news">
+      <EntityTypeMapping TypeName="HappyModel.t_f_news">
+        <MappingFragment StoreEntitySet="t_f_news">
+          <ScalarProperty Name="newsid" ColumnName="newsid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_f_park">
+      <EntityTypeMapping TypeName="HappyModel.t_f_park">
+        <MappingFragment StoreEntitySet="t_f_park">
+          <ScalarProperty Name="park_id" ColumnName="park_id" />
+          <ScalarProperty Name="p_title" ColumnName="p_title" />
+          <ScalarProperty Name="p_content" ColumnName="p_content" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_f_recruit">
+      <EntityTypeMapping TypeName="HappyModel.t_f_recruit">
+        <MappingFragment StoreEntitySet="t_f_recruit">
+          <ScalarProperty Name="recruitid" ColumnName="recruitid" />
+          <ScalarProperty Name="re_name" ColumnName="re_name" />
+          <ScalarProperty Name="re_type" ColumnName="re_type" />
+          <ScalarProperty Name="re_money" ColumnName="re_money" />
+          <ScalarProperty Name="re_require" ColumnName="re_require" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="option1" ColumnName="option1" />
+          <ScalarProperty Name="option2" ColumnName="option2" />
+          <ScalarProperty Name="option3" ColumnName="option3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

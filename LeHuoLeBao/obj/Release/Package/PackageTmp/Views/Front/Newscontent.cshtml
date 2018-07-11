@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "乐活乐宝";
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+@using (Html.BeginForm("Newscontent", "Front", FormMethod.Post))
+{
+    
+    <div class="about">
+    <div class="container">
+        <h3 style="margin-bottom:0">@ViewData["title1"]</h3>
+            <div class="col-md-5 about-text" style="width: 100%; font-size: 20px;">
+                
+                <p>
+                    @Html.Raw(@ViewData["content"])
+                </p> 
+                <p style=" float: right; "> @ViewData["time"]</p>
+            </div>
+            <div class="clearfix"> </div>
+    </div>
+</div>
+
+}

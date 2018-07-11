@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HappyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dl_basic_users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userphone" Type="varchar" MaxLength="50" />
+          <Property Name="userpwd" Type="varchar" MaxLength="50" />
+          <Property Name="exname" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="jointime" Type="datetime" />
+          <Property Name="useraddr" Type="varchar" MaxLength="50" />
+          <Property Name="userQQ" Type="varchar" MaxLength="50" />
+          <Property Name="isDel" Type="bit" />
+          <Property Name="comment" Type="varchar" MaxLength="50" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_function">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pid" Type="int" />
+          <Property Name="function" Type="varchar" MaxLength="50" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="control" Type="varchar" MaxLength="50" />
+          <Property Name="functionname" Type="varchar" MaxLength="50" />
+          <Property Name="parameters" Type="varchar" MaxLength="50" />
+          <Property Name="order" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="level" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_role">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="rolename" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_role_function">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="rid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_user_role">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="userid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_f_news">
+          <Key>
+            <PropertyRef Name="newsid" />
+          </Key>
+          <Property Name="newsid" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="time" Type="datetime" />
+          <Property Name="content" Type="varchar(max)" />
+          <Property Name="picture" Type="varchar" MaxLength="50" />
+          <Property Name="isDel" Type="bit" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_f_park">
+          <Key>
+            <PropertyRef Name="park_id" />
+          </Key>
+          <Property Name="park_id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_title" Type="varchar" MaxLength="50" />
+          <Property Name="p_content" Type="varchar" MaxLength="50" />
+          <Property Name="isDel" Type="bit" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_f_recruit">
+          <Key>
+            <PropertyRef Name="recruitid" />
+          </Key>
+          <Property Name="recruitid" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="re_name" Type="varchar" MaxLength="50" />
+          <Property Name="re_type" Type="varchar" MaxLength="50" />
+          <Property Name="re_money" Type="varchar" MaxLength="50" />
+          <Property Name="re_require" Type="varchar" MaxLength="50" />
+          <Property Name="isDel" Type="bit" />
+          <Property Name="option1" Type="varchar" MaxLength="50" />
+          <Property Name="option2" Type="varchar" MaxLength="50" />
+          <Property Name="option3" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="HappyModelStoreContainer">
+          <EntitySet Name="dl_basic_users" EntityType="Self.dl_basic_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_function" EntityType="Self.sys_function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_role" EntityType="Self.sys_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_role_function" EntityType="Self.sys_role_function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_user_role" EntityType="Self.sys_user_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_f_news" EntityType="Self.t_f_news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_f_park" EntityType="Self.t_f_park" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_f_recruit" EntityType="Self.t_f_recruit" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HappyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dl_basic_users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userpwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="exname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jointime" Type="DateTime" Precision="3" />
+          <Property Name="useraddr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isDel" Type="Boolean" />
+          <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sys_function">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pid" Type="Int32" />
+          <Property Name="function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="control" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="functionname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parameters" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="order" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="level" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sys_role">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sys_role_function">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="rid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sys_user_role">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="userid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_f_news">
+          <Key>
+            <PropertyRef Name="newsid" />
+          </Key>
+          <Property Name="newsid" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="picture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isDel" Type="Boolean" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_f_park">
+          <Key>
+            <PropertyRef Name="park_id" />
+          </Key>
+          <Property Name="park_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="p_content" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isDel" Type="Boolean" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_f_recruit">
+          <Key>
+            <PropertyRef Name="recruitid" />
+          </Key>
+          <Property Name="recruitid" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="re_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="re_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="re_money" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="re_require" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isDel" Type="Boolean" />
+          <Property Name="option1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="option3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="HappyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dl_basic_users" EntityType="Self.dl_basic_users" />
+          <EntitySet Name="sys_function" EntityType="Self.sys_function" />
+          <EntitySet Name="sys_role" EntityType="Self.sys_role" />
+          <EntitySet Name="sys_role_function" EntityType="Self.sys_role_function" />
+          <EntitySet Name="sys_user_role" EntityType="Self.sys_user_role" />
+          <EntitySet Name="t_f_news" EntityType="Self.t_f_news" />
+          <EntitySet Name="t_f_park" EntityType="Self.t_f_park" />
+          <EntitySet Name="t_f_recruit" EntityType="Self.t_f_recruit" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HappyModelStoreContainer" CdmEntityContainer="HappyEntities">
+          <EntitySetMapping Name="dl_basic_users">
+            <EntityTypeMapping TypeName="HappyModel.dl_basic_users">
+              <MappingFragment StoreEntitySet="dl_basic_users">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="userphone" ColumnName="userphone" />
+                <ScalarProperty Name="userpwd" ColumnName="userpwd" />
+                <ScalarProperty Name="exname" ColumnName="exname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="jointime" ColumnName="jointime" />
+                <ScalarProperty Name="useraddr" ColumnName="useraddr" />
+                <ScalarProperty Name="userQQ" ColumnName="userQQ" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_function">
+            <EntityTypeMapping TypeName="HappyModel.sys_function">
+              <MappingFragment StoreEntitySet="sys_function">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="function" ColumnName="function" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="control" ColumnName="control" />
+                <ScalarProperty Name="functionname" ColumnName="functionname" />
+                <ScalarProperty Name="parameters" ColumnName="parameters" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_role">
+            <EntityTypeMapping TypeName="HappyModel.sys_role">
+              <MappingFragment StoreEntitySet="sys_role">
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_role_function">
+            <EntityTypeMapping TypeName="HappyModel.sys_role_function">
+              <MappingFragment StoreEntitySet="sys_role_function">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_user_role">
+            <EntityTypeMapping TypeName="HappyModel.sys_user_role">
+              <MappingFragment StoreEntitySet="sys_user_role">
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_f_news">
+            <EntityTypeMapping TypeName="HappyModel.t_f_news">
+              <MappingFragment StoreEntitySet="t_f_news">
+                <ScalarProperty Name="newsid" ColumnName="newsid" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_f_park">
+            <EntityTypeMapping TypeName="HappyModel.t_f_park">
+              <MappingFragment StoreEntitySet="t_f_park">
+                <ScalarProperty Name="park_id" ColumnName="park_id" />
+                <ScalarProperty Name="p_title" ColumnName="p_title" />
+                <ScalarProperty Name="p_content" ColumnName="p_content" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_f_recruit">
+            <EntityTypeMapping TypeName="HappyModel.t_f_recruit">
+              <MappingFragment StoreEntitySet="t_f_recruit">
+                <ScalarProperty Name="recruitid" ColumnName="recruitid" />
+                <ScalarProperty Name="re_name" ColumnName="re_name" />
+                <ScalarProperty Name="re_type" ColumnName="re_type" />
+                <ScalarProperty Name="re_money" ColumnName="re_money" />
+                <ScalarProperty Name="re_require" ColumnName="re_require" />
+                <ScalarProperty Name="isDel" ColumnName="isDel" />
+                <ScalarProperty Name="option1" ColumnName="option1" />
+                <ScalarProperty Name="option2" ColumnName="option2" />
+                <ScalarProperty Name="option3" ColumnName="option3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
